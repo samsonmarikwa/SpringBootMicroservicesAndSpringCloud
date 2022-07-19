@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.samsonmarikwa.appws.ui.model.request.UpdateUserDetailsRequestModel;
 import com.samsonmarikwa.appws.ui.model.request.UserDetailsRequestModel;
 import com.samsonmarikwa.appws.ui.model.response.UserRest;
 
@@ -65,14 +66,26 @@ public class UserController {
 		return new ResponseEntity<UserRest>(returnValue, HttpStatus.OK);
 	}
 	
-	@PutMapping
-	public String updateUser() {
-		return "update user was called";
+	@PutMapping(path="/{userId}",
+			consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
+			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+	public UserRest updateUser(@PathVariable String userId, @Valid @RequestBody UpdateUserDetailsRequestModel userDetails) {
+		
+		UserRest storedUser = users.get(userId);
+		storedUser.setFirstName(userDetails.getFirstName());
+		storedUser.setLastName(userDetails.getLastName());
+		
+		users.put(userId, storedUser);
+		
+		return storedUser;
+		
 	}
 	
-	@DeleteMapping
-	public String deleteUser() {
-		return "delete user was called";
+	@DeleteMapping(path="/{userId}")
+	public ResponseEntity<?> deleteUser(@PathVariable String userId) {
+		users.remove(userId);
+		
+		return ResponseEntity.noContent().build();
 	}
 
 }
