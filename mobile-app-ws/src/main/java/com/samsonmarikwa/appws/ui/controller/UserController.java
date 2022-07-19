@@ -1,5 +1,7 @@
 package com.samsonmarikwa.appws.ui.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -42,7 +44,7 @@ public class UserController {
 	@PostMapping(
 			consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
 			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
-	public ResponseEntity<UserRest> createUser(@RequestBody UserDetailsRequestModel userDetails) {
+	public ResponseEntity<UserRest> createUser(@Valid @RequestBody UserDetailsRequestModel userDetails) {
 		
 		UserRest returnValue = new UserRest();
 		returnValue.setFirstName(userDetails.getFirstName());
