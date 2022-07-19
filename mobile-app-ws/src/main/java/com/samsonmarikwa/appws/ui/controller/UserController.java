@@ -41,6 +41,9 @@ public class UserController {
 			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<UserRest> getUser(@PathVariable String userId) {
 		
+		String firstName = null;
+		int len = firstName.length();
+		
 		if (users.containsKey(userId)) {
 			return new ResponseEntity<>(users.get(userId), HttpStatus.OK);
 		} else {
