@@ -8,14 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.samsonmarikwa.appws.ui.model.request.UserDetailsRequestModel;
 import com.samsonmarikwa.appws.ui.model.response.UserRest;
 
 @RestController
-@RequestMapping("users")
+@RequestMapping("/users")
 public class UserController {
 	
 	@GetMapping
@@ -25,7 +27,8 @@ public class UserController {
 		return "get users was called with page=" + page + " and limit=" + limit + " sort=" + sort;
 	}
 	
-	@GetMapping(path="/{userId}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+	@GetMapping(path="/{userId}",
+			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<UserRest> getUser(@PathVariable String userId) {
 		
 		UserRest returnValue = new UserRest();
@@ -36,9 +39,16 @@ public class UserController {
 		
 	}
 	
-	@PostMapping
-	public String createUser() {
-		return "create user was called";
+	@PostMapping(
+			consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE},
+			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+	public ResponseEntity<UserRest> createUser(@RequestBody UserDetailsRequestModel userDetails) {
+		
+		UserRest returnValue = new UserRest();
+		returnValue.setFirstName(userDetails.getFirstName());
+		returnValue.setLastName(userDetails.getLastName());
+		returnValue.setEmail(userDetails.getEmail());
+		return new ResponseEntity<UserRest>(returnValue, HttpStatus.OK);
 	}
 	
 	@PutMapping
