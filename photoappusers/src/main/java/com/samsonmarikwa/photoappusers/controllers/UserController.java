@@ -36,7 +36,8 @@ public class UserController {
    
    @GetMapping("/status/check")
    public String status() {
-      return "Hello from " + client.getApplication(appName).getName() + " on port " + env.getProperty("local.server.port");
+      return "Hello from " + client.getApplication(appName).getName()
+            + " on port " + env.getProperty("local.server.port") + " with token = " + env.getProperty("token.secret");
    }
    
    @PostMapping(
