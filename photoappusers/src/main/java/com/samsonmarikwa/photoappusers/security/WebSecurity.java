@@ -36,6 +36,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
             .antMatchers("/**").hasIpAddress(env.getProperty("gateway.ip"))
             .and()
             .addFilter(getAuthenticationFilter());
+      http.authorizeRequests().antMatchers("/h2-console/**").permitAll();
       http.headers().frameOptions().disable(); // required to allow h2-console
    }
    
