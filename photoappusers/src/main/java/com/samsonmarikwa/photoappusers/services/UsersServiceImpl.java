@@ -5,20 +5,18 @@ import com.samsonmarikwa.photoappusers.data.UserEntity;
 import com.samsonmarikwa.photoappusers.repositories.UsersRepository;
 import com.samsonmarikwa.photoappusers.shared.UserDto;
 import com.samsonmarikwa.photoappusers.ui.model.AlbumResponseModel;
+import feign.FeignException;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.env.Environment;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +24,8 @@ import java.util.UUID;
 
 @Service
 public class UsersServiceImpl implements UsersService {
+   
+   Logger logger = LoggerFactory.getLogger(this.getClass());
    
    UsersRepository usersRepository;
    BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -105,7 +105,14 @@ public class UsersServiceImpl implements UsersService {
       */
    
       // Use Feign Client
-      List<AlbumResponseModel> albumsList = albumsServiceClient.getAlbums(userId);
+      List<AlbumResponseModel> albumsList = null;
+      try {
+         albumsList = albumsServiceClient.getAlbums(userId);
+      } catch (FeignException e) {
+         logger.error(e.getLocalizedMessage());
+      
+      
+      }
 
       userDto.setAlbums(albumsList);
       
