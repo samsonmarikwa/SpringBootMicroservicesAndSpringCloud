@@ -1,5 +1,6 @@
 package com.samsonmarikwa.photoappusers;
 
+import com.samsonmarikwa.photoappusers.shared.FeignErrorDecoder;
 import feign.Logger;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
@@ -41,5 +42,10 @@ public class PhotoappUsersApplication {
 	Logger.Level feignLoggerLevel() {
 		return Logger.Level.FULL;
 	}
+	
+//	@Bean
+//	public FeignErrorDecoder getFeignErrorDecoder() {
+//		return new FeignErrorDecoder();
+//	}
 
 }
