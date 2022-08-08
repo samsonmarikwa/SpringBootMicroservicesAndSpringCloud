@@ -1,5 +1,6 @@
 package com.samsonmarikwa.photoappusers.services;
 
+import com.samsonmarikwa.photoappusers.data.AlbumsServiceClient;
 import com.samsonmarikwa.photoappusers.data.UserEntity;
 import com.samsonmarikwa.photoappusers.repositories.UsersRepository;
 import com.samsonmarikwa.photoappusers.shared.UserDto;
@@ -29,8 +30,8 @@ public class UsersServiceImpl implements UsersService {
    UsersRepository usersRepository;
    BCryptPasswordEncoder bCryptPasswordEncoder;
    
-   RestTemplate restTemplate;
-   
+//   RestTemplate restTemplate;
+   AlbumsServiceClient albumsServiceClient;
    ModelMapper modelMapper;
    
    Environment env;
@@ -39,12 +40,14 @@ public class UsersServiceImpl implements UsersService {
    public UsersServiceImpl(UsersRepository usersRepository,
                            BCryptPasswordEncoder bCryptPasswordEncoder,
                            ModelMapper modelMapper,
-                           RestTemplate restTemplate,
+//                           RestTemplate restTemplate,
+                           AlbumsServiceClient albumsServiceClient,
                            Environment env) {
       this.usersRepository = usersRepository;
       this.bCryptPasswordEncoder = bCryptPasswordEncoder;
       this.modelMapper = modelMapper;
-      this.restTemplate = restTemplate;
+//      this.restTemplate = restTemplate;
+      this.albumsServiceClient = albumsServiceClient;
       this.env = env;
    }
    
@@ -91,7 +94,7 @@ public class UsersServiceImpl implements UsersService {
       if (userEntity == null) throw new UsernameNotFoundException(userId);
    
       UserDto userDto = modelMapper.map(userEntity, UserDto.class);
-      
+      /*
       String albumsUrl = String.format(env.getProperty("albums.url"), userId);
    
       // RestTemplate supports client-side load balancing
@@ -99,6 +102,11 @@ public class UsersServiceImpl implements UsersService {
             restTemplate.exchange(
                   albumsUrl, HttpMethod.GET, null, new ParameterizedTypeReference<List<AlbumResponseModel>>() {});
       List<AlbumResponseModel> albumsList = albumsListResponse.getBody();
+      */
+   
+      // Use Feign Client
+      List<AlbumResponseModel> albumsList = albumsServiceClient.getAlbums(userId);
+
       userDto.setAlbums(albumsList);
       
       return userDto;
