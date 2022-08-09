@@ -1,16 +1,10 @@
 package com.samsonmarikwa.photoappusers.data;
 
 import com.samsonmarikwa.photoappusers.ui.model.AlbumResponseModel;
-import feign.FeignException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.ArrayList;
 import java.util.List;
 
 //@FeignClient(name = "albums-ws", fallbackFactory = AlbumsFallbackFactory.class)
