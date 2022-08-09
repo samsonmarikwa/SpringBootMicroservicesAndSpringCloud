@@ -17,7 +17,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
-@EnableCircuitBreaker
+//@EnableCircuitBreaker
 public class PhotoappUsersApplication {
 
 	public static void main(String[] args) {
