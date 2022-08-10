@@ -105,7 +105,9 @@ public class UsersServiceImpl implements UsersService {
       */
    
       // Use Feign Client
+      logger.info("Before calling albums microservice");
       List<AlbumResponseModel> albumsList = albumsServiceClient.getAlbums(userId);
+      logger.info("After calling albums microservice");
       userDto.setAlbums(albumsList);
       
       return userDto;
