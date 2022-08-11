@@ -1,0 +1,52 @@
+2022-08-10 20:04:25.586  INFO [users-ws,,] 27552 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Fetching config from server at : http://localhost:8012
+2022-08-10 20:04:25.920  INFO [users-ws,,] 27552 --- [restartedMain] c.c.c.ConfigServicePropertySourceLocator : Located environment: name=users-ws, profiles=[default], label=null, version=null, state=null
+2022-08-10 20:04:25.922  INFO [users-ws,,] 27552 --- [restartedMain] b.c.PropertySourceBootstrapConfiguration : Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'}, BootstrapPropertySource {name='bootstrapProperties-file:C:\CognizantLive\tutorials\config-server\users-ws.properties'}, BootstrapPropertySource {name='bootstrapProperties-file:C:\CognizantLive\tutorials\config-server\application.properties'}]
+2022-08-10 20:04:25.950  INFO [users-ws,,] 27552 --- [restartedMain] c.s.p.PhotoappUsersApplication           : No active profile set, falling back to 1 default profile: "default"
+2022-08-10 20:04:27.557  INFO [users-ws,,] 27552 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-10 20:04:27.715  INFO [users-ws,,] 27552 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 149 ms. Found 1 JPA repository interfaces.
+2022-08-10 20:04:28.266  INFO [users-ws,,] 27552 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a4617e57-9095-3a46-8e2f-3e3c87b2e4c6
+2022-08-10 20:04:29.786  INFO [users-ws,,] 27552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-08-10 20:04:29.798  INFO [users-ws,,] 27552 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-08-10 20:04:29.798  INFO [users-ws,,] 27552 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-10 20:04:29.989  INFO [users-ws,,] 27552 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-08-10 20:04:29.990  INFO [users-ws,,] 27552 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4020 ms
+2022-08-10 20:04:30.507  INFO [users-ws,,] 27552 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-08-10 20:04:31.020  INFO [users-ws,,] 27552 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-08-10 20:04:31.033  INFO [users-ws,,] 27552 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/photo_app?serverTimezone=UTC'
+2022-08-10 20:04:34.545  INFO [users-ws,,] 27552 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-10 20:04:34.636  INFO [users-ws,,] 27552 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-08-10 20:04:34.912  INFO [users-ws,,] 27552 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-10 20:04:35.128  INFO [users-ws,,] 27552 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-08-10 20:04:36.062  INFO [users-ws,,] 27552 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-10 20:04:36.077  INFO [users-ws,,] 27552 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-10 20:04:36.979  WARN [users-ws,,] 27552 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-10 20:04:37.191  WARN [users-ws,,] 27552 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2022-08-10 20:04:37.272  INFO [users-ws,,] 27552 --- [restartedMain] o.s.c.openfeign.FeignClientFactoryBean   : For 'albums-ws' URL not provided. Will try picking an instance via load-balancing.
+2022-08-10 20:04:37.800  INFO [users-ws,,] 27552 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65ebf1a9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@58aa7a8, org.springframework.security.web.context.SecurityContextPersistenceFilter@74b08d9, org.springframework.security.web.header.HeaderWriterFilter@195ffa25, org.springframework.security.web.authentication.logout.LogoutFilter@10fad844, com.samsonmarikwa.photoappusers.security.AuthenticationFilter@27772b3e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72a68c8a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f46f0da, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@62b0d6ac, org.springframework.security.web.session.SessionManagementFilter@8e4ee37, org.springframework.security.web.access.ExceptionTranslationFilter@76898d34, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3b066bf]
+2022-08-10 20:04:39.764  INFO [users-ws,,] 27552 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-08-10 20:04:40.379  WARN [users-ws,,] 27552 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-08-10 20:04:40.607  INFO [users-ws,,] 27552 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 28 endpoint(s) beneath base path '/actuator'
+2022-08-10 20:04:40.857  INFO [users-ws,,] 27552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 54325 (http) with context path ''
+2022-08-10 20:04:40.858  INFO [users-ws,,] 27552 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 54325
+2022-08-10 20:04:40.865  INFO [users-ws,,] 27552 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-08-10 20:04:40.930  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-08-10 20:04:40.935  INFO [users-ws,,] 27552 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-08-10 20:04:40.969  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-08-10 20:04:40.970  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-08-10 20:04:40.970  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-08-10 20:04:40.970  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-08-10 20:04:40.970  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-08-10 20:04:40.970  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-08-10 20:04:40.970  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-08-10 20:04:41.224  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-08-10 20:04:41.233  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-08-10 20:04:41.241  INFO [users-ws,,] 27552 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-08-10 20:04:41.264  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1660176281263 with initial instances count: 2
+2022-08-10 20:04:41.315  INFO [users-ws,,] 27552 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USERS-WS with eureka with status UP
+2022-08-10 20:04:41.317  INFO [users-ws,,] 27552 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1660176281317, current=UP, previous=STARTING]
+2022-08-10 20:04:41.319  INFO [users-ws,,] 27552 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USERS-WS/users-ws:ed0d01bb038098d9676ff2f7a8d63252: registering service...
+2022-08-10 20:04:41.373  INFO [users-ws,,] 27552 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USERS-WS/users-ws:ed0d01bb038098d9676ff2f7a8d63252 - registration status: 204
+2022-08-10 20:04:41.626  INFO [users-ws,,] 27552 --- [restartedMain] c.s.p.PhotoappUsersApplication           : Started PhotoappUsersApplication in 17.749 seconds (JVM running for 19.467)
+2022-08-10 20:04:41.762  INFO [users-ws,,] 27552 --- [RMI TCP Connection(3)-192.168.1.58] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-10 20:04:41.763  INFO [users-ws,,] 27552 --- [RMI TCP Connection(3)-192.168.1.58] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-08-10 20:04:41.766  INFO [users-ws,,] 27552 --- [RMI TCP Connection(3)-192.168.1.58] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
